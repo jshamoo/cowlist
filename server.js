@@ -19,3 +19,12 @@ app.get('/api/cows', (req, res) => {
     res.send(results);
   });
 });
+
+app.post('/api/cows', (req, res) => {
+  console.log(req.body);
+  var queryString = `INSERT INTO cows (name, description) VALUES (?, ?)`;
+  db.query(queryString, [req.body.name, req.body.description], (err) => {
+    if (err) throw (err);
+    res.sendStatus(201);
+  });
+});

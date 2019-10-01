@@ -1,3 +1,23 @@
+* {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+body {
+  margin: 30px;
+}
+
+h1 {
+  color: #3B5948;
+}
+
 .description {
-  background-color: #9CA684;
+  width: 70%;
+  border: 3px solid #9CA684;
+  padding: 5px;
+}
+
+.desc-box {
+  margin-top: 10px;
+  width: 500px;
+  height:50px;
 }

@@ -1,5 +1,7 @@
 import App from './components/app.js';
-import data from './data.js';
+import fakedata from './data.js';
+import fetchCows from './api.js';
+fetchCows.readAll();
 ReactDOM.render(React.createElement(App, {
-  cows: data
+  cows: fakedata
 }), document.getElementById('app'));

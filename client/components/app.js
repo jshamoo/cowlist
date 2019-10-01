@@ -9,7 +9,6 @@ class App extends React.Component {
   }
 
   handleClick(value){
-    console.log('test',value);
     this.setState({ selectedCow: value});
   }
 

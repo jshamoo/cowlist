@@ -1,15 +1,16 @@
-var CowsManager = {
+var fetchCows = {
   readAll: (cb) => {
     $.get({
-      url: '/api/cows',
-      data: null,
+      url: 'http://127.0.0.1:3000/api/cows',
+      data: {},
       dataType: 'json'
     })
-    .done(data => cb(data))
-    .fail(console.log('request rejected'))
-  },
-
-  create: () => {}
+    .done((data) => {
+      console.log('success');
+      cb(data)
+    })
+    .fail(() => console.log('fail'));
+  }
 }
 
-export default CowsManager;
+export default fetchCows;

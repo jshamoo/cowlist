@@ -1,5 +1,13 @@
-var CowList = (props) => (
-  <li>{props.cow.name}</li>
-);
+var CowList = (props) => {
+  console.log(props);
+  return (
+    <ul onClick={() => props.handleClick(props.cow)} >
+      <li>
+        {props.cow.name}
+      </li>
+    </ul>
+
+  );
+};
 
 export default CowList;

@@ -7,7 +7,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       cows: [],
-      selectedCow: this.props.cows[0]
+      selectedCow: null
       };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -19,7 +19,12 @@ class App extends React.Component {
   componentDidMount() {
     console.log('All components are mounted');
     fetchCows.readAll()
-      .done(()=> console.log("Hey~~~~~"));
+      .done(data => {
+        this.setState({
+          cows: data,
+          selectedCow: data[0]
+        });
+      });
   }
 
 

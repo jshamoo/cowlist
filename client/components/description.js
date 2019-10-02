@@ -1,17 +1,16 @@
 var Description = (props) => {
-  let descriptionBox = (
-    <div className={'description'}>
-      {props.cow.description}
-    </div>
-  );
 
-  if (props.cow === '') {
+  if (props.cow === null) {
     return (
       <div>
       </div>
     );
   } else {
-    return descriptionBox;
+    return (
+      <div className={'description'}>
+        {props.cow.description}
+      </div>
+    );;
   }
 
 };

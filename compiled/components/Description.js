@@ -1,12 +1,11 @@
 var Description = props => {
-  let descriptionBox = React.createElement("div", {
-    className: 'description'
-  }, props.cow.description);
-
-  if (props.cow === '') {
+  if (props.cow === null) {
     return React.createElement("div", null);
   } else {
-    return descriptionBox;
+    return React.createElement("div", {
+      className: 'description'
+    }, props.cow.description);
+    ;
   }
 };
 

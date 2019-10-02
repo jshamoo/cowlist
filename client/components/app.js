@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <div>
         <Description cow={this.state.selectedCow} />
-        {this.props.cows.map((cow) =>
+        {this.state.cows.map((cow) =>
           <CowList key={cow.id} cow={cow} handleClick={this.handleClick} />
         )}
       </div>

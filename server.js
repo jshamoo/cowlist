@@ -1,8 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const db = require('./db');
 const cors = require('cors');
+const multer = require('multer');
+const db = require('./db');
+
+const upload = multer();
 
 const app = express();
 
@@ -14,7 +17,7 @@ app.use(cors());
 const port = '3000';
 app.listen(port, () => console.log(`Server is running, listening on port:${port}`));
 
-app.get('/api/cows', (req, res) => {
+app.get('/cows', (req, res) => {
   //console.log(req.body);
   var queryString = `SELECT * FROM cows;`;
   db.query(queryString, (err, results) => {
@@ -23,11 +26,12 @@ app.get('/api/cows', (req, res) => {
   });
 });
 
-app.post('/api/cows', (req, res) => {
+app.post('/create', upload.none(),(req, res) => {
   console.log(req.body);
   var queryString = `INSERT INTO cows (name, description) VALUES (?, ?)`;
   db.query(queryString, [req.body.name, req.body.description], (err) => {
-    if (err) throw (err);
-    res.sendStatus(201);
+     if (err) throw (err);
+     res.sendStatus(201);
   });
+  //res.sendStatus(200);
 });

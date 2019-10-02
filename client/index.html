@@ -12,12 +12,17 @@
     <h1>Cow List</h1>
     <div id="app">
     </div>
-    <form>
-      <label>Add a new cow!<br>
-      Enter Name:&nbsp;<input type="text" name="name"><br>
-      Enter Description: &nbsp;<input type="text" name="description" class="desc-box">
-      </label>
-      <input type="submit" value="Submit">
+    <form id="form" enctype="multipart/form-data">
+      <div>
+        <p>Add a new cow!</p>
+        <label for="name">Cow Name</label>
+        <input id="name" type="text" name="name">
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description"></textarea>
+      </div>
+      <input id="submit" type="submit" value="Submit">
     </form>
   <script type="module" src="../compiled/index.js"></script>
   </body>

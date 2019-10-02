@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     return React.createElement("div", null, React.createElement(Description, {
       cow: this.state.selectedCow
-    }), this.props.cows.map(cow => React.createElement(CowList, {
+    }), this.state.cows.map(cow => React.createElement(CowList, {
       key: cow.id,
       cow: cow,
       handleClick: this.handleClick

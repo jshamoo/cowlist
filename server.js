@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(morgan('dev'));
+app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cors());
@@ -15,7 +15,7 @@ const port = '3000';
 app.listen(port, () => console.log(`Server is running, listening on port:${port}`));
 
 app.get('/api/cows', (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   var queryString = `SELECT * FROM cows;`;
   db.query(queryString, (err, results) => {
     if (err) throw (err);

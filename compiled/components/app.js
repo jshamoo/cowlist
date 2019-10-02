@@ -1,11 +1,13 @@
 import CowList from './cowList.js';
 import Description from './description.js';
+import fetchCows from '../api.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCow: ''
+      cows: [],
+      selectedCow: this.props.cows[0]
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -14,6 +16,11 @@ class App extends React.Component {
     this.setState({
       selectedCow: value
     });
+  }
+
+  componentDidMount() {
+    console.log('All components are mounted');
+    fetchCows.readAll().done(() => console.log("Hey~~~~~"));
   }
 
   render() {

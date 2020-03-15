@@ -13,6 +13,7 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cors());
+app.use(express.static('public'))
 
 const port = '3000';
 app.listen(port, () => console.log(`Server is running, listening on port:${port}`));
@@ -27,11 +28,21 @@ app.get('/cows', (req, res) => {
 });
 
 app.post('/create', upload.none(),(req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   var queryString = `INSERT INTO cows (name, description) VALUES (?, ?)`;
   db.query(queryString, [req.body.name, req.body.description], (err) => {
      if (err) throw (err);
      res.sendStatus(201);
   });
   //res.sendStatus(200);
+});
+
+app.put('/update/:id', (req, res) => {
+  // console.log(req.body);
+  var queryString = `UPDATE cows SET name=? WHERE id in (WHERE)`;
+  // db.query(queryString, [req.body.name, req.body.description], (err) => {
+  //   if (err) throw (err);
+  //   res.sendStatus(201);
+  // });
+  res.sendStatus(200);
 });

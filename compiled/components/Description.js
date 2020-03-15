@@ -1,3 +1,5 @@
+import React from 'react';
+
 var Description = props => {
   if (props.cow === null) {
     return React.createElement("div", null);

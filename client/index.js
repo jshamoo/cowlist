@@ -1,6 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import App from './components/app.js';
 import fetchCows from './api.js';
-// import fakedata from './data.js';
 
 
 ReactDOM.render(
